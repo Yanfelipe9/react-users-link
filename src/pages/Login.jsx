@@ -1,23 +1,4 @@
-import { Link } from "react-router-dom"
-import { useState } from "react";
-import { API } from "../services/Api";
-
-
 export default function Login({ children }) {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState(null);
-  const [password, setPasword] = useState("");
-
-  async function autenticar(evento) {
-    try {
-      evento.preventDefault();
-      const dados = { email, password }
-
-      const response = await API.post("/auth/login", dados)
-    } catch (error) {
-
-    }
-  }
   return (
     <>
       <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -43,7 +24,6 @@ export default function Login({ children }) {
                   type="email"
                   autoComplete="email"
                   required
-                  onChanged={(evento) => setEmail(evento.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -65,7 +45,6 @@ export default function Login({ children }) {
                   type="password"
                   autoComplete="current-password"
                   required
-                  onChanged={(evento) => setPasword(evento.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -79,9 +58,8 @@ export default function Login({ children }) {
                 Login
               </button>
             </div>
-            <Link to="/cadastro" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            > Cadastre-se </Link>
           </form>
+          <div>{children}</div>
         </div>
       </div>
     </>
