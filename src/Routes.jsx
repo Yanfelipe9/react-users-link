@@ -5,7 +5,7 @@ import Cadastro from "./pages/Cadastro";
 function Routes() {
     return (
         <Rotas>
-            <Route path="/" element={<Login/>}/>
+            <Route path="/login" element={<Login/>}/>
             <Route path="/cadastro" element={<Cadastro/>}/>
         </Rotas>
     )
